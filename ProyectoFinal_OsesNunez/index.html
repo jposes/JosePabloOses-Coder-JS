@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>ProyectoFinal - INDEX - Jose Pablo Oses</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <link href=
+    'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
+              rel='stylesheet'>
+          
+        <script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" >
+        </script>
+          
+        <script src=
+    "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" >
+        </script>
+
+</head>
+<body>
+    <header class="container mb-3 mb-lg-5">
+        <div class="row d-flex flex-wrap pt-3">
+            <div class="col-4 col-md-8">
+                <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <img src="img/logo.gif" alt="logo" class="w-50">
+                    </a>
+            </div>
+            <div class="col-4 d-none d-md-block">
+                
+            </div>
+        </div>
+    </header>
+    <div class="container mb-4">
+        
+        <section>
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <h2>Bienvenido</h2>
+                        <p>Hola, <span id="username"></span>. ¡Gracias por iniciar sesión!</p>
+                        <hr />
+                    </div>
+                    
+                </div>
+                <div class="col-6">
+                    <main>
+                        <div>
+                            <label for="ingreso">Buscar Vehiculos</label>
+                            <input type="text" name="ingreso" id="ingreso" autofocus/>
+                    
+                            <button id="btnSearch" class="btn btn-search btn-secondary">buscar</button>
+                        </div>
+                        
+                    </main>    
+                </div>
+
+            </div>
+
+        </section>
+
+        <section>
+            <main>
+                <div id="contenedor">
+                </div>
+            </main>
+         </section>
+
+        <section>
+          <main>
+             <div id="seleccion">
+                <h2>Selecciona un vehículo</h2>
+                <div id="vehiculos-container"></div>
+                <div>
+                    <p>
+                        <label>
+                            ¿Cuántos días necesitas alquilar el vehículo?
+                            <input disabled type="number" id="dias" />
+                        </label>
+                    </p>
+                    <p>
+                        <label>Fecha Inicio:
+                            <input type="text" id="datePicker1" onchange="obtenerDias()">  
+                        </label>
+                        <label>Fecha Final:
+                            <input type="text" id="datePicker2" onchange="obtenerDias()">
+                        </label>
+                    </p>
+                    <p>
+                    <label>
+                        Ingresa el lugar donde recibirás el vehículo:
+                        <input type="text" id="lugarRecibe" />
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        Ingresa el lugar donde entregarás el vehículo:
+                        <input type="text" id="lugarEntrega" />
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name="extra" value="0" /> GPS - costo por día $50
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name="extra" value="1" /> Asientos para niños - costo por día $30
+                    </label>
+                    </p>
+                    <p>
+                    <label>
+                        <input type="checkbox" name="extra" value="2" /> Seguro adicional - costo por día $100
+                    </label>
+                    </p>
+                    <button id="alquilar" class="btn btn-info">Alquilar</button>
+               </div>
+              </div> 
+              <hr />
+              <div id="confirmacion" style="display: none;">
+                <h2>Confirmación de alquiler</h2>
+                <p id="confirmacion-datos"></p>
+                <button id="confirmarButton" class="btn btn-success">Confirmar</button>
+                <button id="cancelar" class="btn btn-dark">Cancelar</button>
+                <div id="popup" class="popup">
+                <div class="popup-content">
+                    <p id="message"></p>
+                    <button id="closeButton" class="btn btn-dark">Cerrar</button>
+                </div>
+                </div>
+              </div> 
+            </main>
+              
+        </section>
+
+      
+    </div>
+    <footer class="bg-primary-footer p-5">
+        <section class="container">
+            <div class="row">
+                    <div class="col-8 col-md-4 mb-3 d-none d-lg-block ">
+                        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                             <img src="img/logo.png" class="img-fluid" alt="logo">
+                            </a>
+                    </div>
+                
+                    
+                
+                    <div class="col-6 col-md-2 mb-3 d-none d-lg-block ml-2 ">
+                        <h5>INFO</h5>
+                        <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">COMPANY</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">FRANCHESE</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">PARTNERS</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">CONTACT</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 ">FAQ</a></li>
+                        </ul>
+                    </div>
+                
+                    <div class="col-8 col-md-2 mb-3 d-none d-lg-block ">
+                        <form>
+                        <h5>SIGUENOS</h5>
+                        
+                        
+                        
+                        </form>
+                        <div class="mt-2">
+                        <ul class="list-unstyled d-flex">
+                                <li class="ms-3"><a class="link-custom" href="#"><i class="bi bi-facebook"></i></a></li>
+                                <li class="ms-3"><a class="link-custom" href="#"><i class="bi bi-twitter"></i></a></li>
+                                <li class="ms-3"><a class="link-custom" href="#"><i class="bi bi-linkedin"></i></a></li>
+                                </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-4 d-block d-lg-none">
+                            <form>
+                            <h5>NEWSLETTER</h5>
+                            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                                <label for="newsletter1" class="visually-hidden">Email address</label>
+                                <input id="newsletter1" type="text" class="form-control" placeholder="">
+                                
+                            </div>
+                            <div class="d-flex flex-column flex-sm-row w-100 gap-2 mt-3">
+                                <button class="btn btn-primary btn-sm" type="button" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: 1.8rem; --bs-btn-font-size: .75rem;">SIGN UP</button>
+                            </div>
+                            </form>
+                    </div>
+                    <div class="col-4 d-block d-lg-none">
+                            <h5>SIGUENOS</h5>
+                            <div class="mt-2">
+                                    <ul class="list-unstyled d-flex">
+                                            <li class="ms-3"><a class="link-custom" href="#"><i class="bi bi-facebook"></i></a></li>
+                                            <li class="ms-3"><a class="link-custom" href="#"><i class="bi bi-twitter"></i></a></li>
+                                            <li class="ms-3"><a class="link-custom" href="#"><i class="bi bi-linkedin"></i></a></li>
+                                            </ul>
+                                    </div>
+                    </div>
+                    <div class="col-4 col-md-2 mb-3 ">
+                            <h5>PROMOCIONES</h5>
+                            <div class="row g-0">
+                                <div class="col-12 mt-1">
+                                        <svg class="bd-placeholder-img  ms-1" width="196" height="65" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#73A0C0"></rect></svg>
+                                </div>
+                                <ul class="list-unstyled d-flex pt-1">
+                                        <li>
+                                            <svg class="bd-placeholder-img rounded p-1" width="41" height="35" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice"><rect width="100%" height="100%" fill="#73A0C0"></rect></svg>
+                                        </li>
+                                        <li>
+                                            <svg class="bd-placeholder-img rounded p-1" width="41" height="35" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice"><rect width="100%" height="100%" fill="#73A0C0"></rect></svg>
+                                        </li>
+                                        <li>
+                                            <svg class="bd-placeholder-img rounded p-1" width="41" height="35" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice"><rect width="100%" height="100%" fill="#73A0C0"></rect></svg>
+                                        </li>
+                                        <li>
+                                            <svg class="bd-placeholder-img rounded p-1" width="41" height="35" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice"><rect width="100%" height="100%" fill="#73A0C0"></rect></svg>
+                                        </li>
+                                        <li>
+                                            <svg class="bd-placeholder-img rounded p-1" width="41" height="35" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice"><rect width="100%" height="100%" fill="#73A0C0"></rect></svg>
+                                        </li>
+                                        </ul>
+                            </div>
+    
+                    </div>
+            </div>
+        </section>
+
+    </footer>
+    <script src="./js/main.js"></script>
+</body>
+</html>
