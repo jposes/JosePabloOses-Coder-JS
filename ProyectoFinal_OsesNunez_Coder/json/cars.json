@@ -1,0 +1,28 @@
+{
+   "cars":[
+      {
+         "Id": "1",
+         "Type":"Sedans",
+         "Price":"100",
+		   "Image":"./img/01.jpg"
+      },
+	  {
+         "Id": "2",
+         "Type":"SUV",
+         "Price":"200",
+		   "Image":"./img/02.jpg"
+      },
+	  {
+         "Id": "3",
+         "Type":"4x4",
+         "Price":"350",
+		   "Image":"./img/03.jpg"
+      },
+	  {
+         "Id": "4",
+         "Type":"Special 4x4",
+         "Price":"400",
+		   "Image":"./img/04.jpg"
+      }
+   ]
+}
